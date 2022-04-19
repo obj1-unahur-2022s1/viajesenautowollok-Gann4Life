@@ -3,7 +3,7 @@
  * -[x] Definir clientes
  * -[x] Añadir remisera Lucía
  * -[x] Añadir cadeta Melina
- * -[ ] Añadir oficina
+ * -[x] Añadir oficina
  */
 
 object oficina 
