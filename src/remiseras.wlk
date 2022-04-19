@@ -14,36 +14,36 @@ object oficina
 	// establece las remiseras de primera y de segunda opción.
 	method asignarRemiseras(remisera1, remisera2)
 	{
-		
+		primeraRemisera = remisera1
+		segundaRemisera = remisera2
 	} 
 	
 	// cambia la remisera de primera opción por el que se indica.
-	method cambiarPrimerRemiserarPor(remisera)
-	{
-		
-	} 
+	method cambiarPrimerRemiserarPor(remisera) { primeraRemisera = remisera } 
 	
 	// cambia la remisera de segunda opción por el que se indica.
-	method cambiarSegundoRemiseraPor(remisera)
-	{
-		
-	}
+	method cambiarSegundoRemiseraPor(remisera) { segundaRemisera = remisera }
 	
 	
 	// intercambia las remiseras de primera y segunda opción. O sea, la que era primera pasa a segunda, y viceversa.
 	method intercambiarRemiseras()
 	{
+		// 1. Guardar remiseras anteriores
+		const primeraRemiseraAnterior = primeraRemisera
+		const segundaRemiseraAnterior = segundaRemisera
 		
+		// 2. Reemplazar nuevas remiseras por las guardadas anteriormente invirtiendo el orden
+		primeraRemisera = segundaRemiseraAnterior
+		segundaRemisera = primeraRemiseraAnterior
 	} 
 	
 	/* Devuelve la remisera que corresponde asignar a un viaje, dados el cliente y la cantidad de kilómetros. 
 	 * El criterio es el siguiente: si para ese viaje, el precio de la segunda remisera es menor al de la primera con una 
-	 	diferencia de más de 30 pesos, entonces se elige la segunda remisera; si no, se elige la primera.
- 	 * 
+	 * diferencia de más de 30 pesos, entonces se elige la segunda remisera; si no, se elige la primera. 
  	 */
 	method remiseraElegidaParaViaje(cliente, kms)
 	{
-	
+		return if(primeraRemisera.precioDeViaje(cliente, kms) > (segundaRemisera.precioDeViaje(cliente, kms) + 30)) segundaRemisera else primeraRemisera
 	}
 	
 }
@@ -82,7 +82,7 @@ object mariela
 
 //Juana por su parte, cobra 100 pesos hasta 8 kilómetros, y 200 pesos si son más de 8 kilómetros. A Juana no le importa lo que pactó la agencia, le cobra lo mismo a todos.
 object juana {
-	method precioDeViaje(distancia)
+	method precioDeViaje(persona, distancia)
 	{
 		return if(distancia < 8) 100 else 200 
 	}

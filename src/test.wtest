@@ -58,15 +58,15 @@ test "Mariela: Teresa hace un viaje de 10km" {
  * 200 pesos a todos.
  */
 test "Juana: Ludmila hace un viaje de 10km" {
-	assert.that(juana.precioDeViaje(10) == 200)
+	assert.that(juana.precioDeViaje(null, 10) == 200)
 }
 
 test "Juana: Ana María hace un viaje de 10km" {
-	assert.that(juana.precioDeViaje(10) == 200)
+	assert.that(juana.precioDeViaje(null, 10) == 200)
 }
 
 test "Juana: Teresa hace un viaje de 10km" {
-	assert.that(juana.precioDeViaje(10) == 200)
+	assert.that(juana.precioDeViaje(null, 10) == 200)
 }
 
 /* [Enunciado 2]
@@ -128,17 +128,17 @@ test "Mariela: Teresa hace un viaje de 2km"
 // Juana
 test "Juana: Ludmila hace un viaje de 2km"
 {
-	assert.that(juana.precioDeViaje(2) == 100)
+	assert.that(juana.precioDeViaje(null, 2) == 100)
 }
 
 test "Juana: Ana María hace un viaje de 2km"
 {
-	assert.that(juana.precioDeViaje(2) == 100)
+	assert.that(juana.precioDeViaje(null, 2) == 100)
 }
 
 test "Juana: Teresa hace un viaje de 2km"
 {
-	assert.that(juana.precioDeViaje(2) == 100)
+	assert.that(juana.precioDeViaje(null, 2) == 100)
 }
 
 /* [Lucía y la cadete]
@@ -177,3 +177,31 @@ test "Juana: Teresa hace un viaje de 2km"
  	melina.trabajarPara(ludmila)
  	assert.that(lucia.precioDeViaje(melina, 1) == 18)
  }
+ 
+ /* [Oficina]
+  * Supongamos que en un momento dado la remisera de primera opción es Roxana, y el de segunda opción es Juana.
+  */
+  
+// para un viaje de 10 kilómetros para Ana María, la remisera elegida es Juana, porque su precio de 200 pesos, 
+// es menor al de Roxana (300 pesos), y la diferencia es de más de 30 pesos.
+test "Oficina: Roxana y Juana, Ana María viaja 10kms"
+{
+	oficina.asignarRemiseras(roxana, juana)
+	assert.that(oficina.remiseraElegidaParaViaje(anaMaria, 10) == juana)
+}
+
+// si el viaje es para Teresa, entonces Roxana ofrece 220 pesos y Juana 200. 
+// El precio de Juana es menor, pero la diferencia no llega a 30 pesos. Por lo tanto, la remisera elegido es Roxana.
+test "Oficina: Roxana y Juana, Teresa viaja 10kms"
+{
+	oficina.asignarRemiseras(roxana, juana)
+	assert.that(oficina.remiseraElegidaParaViaje(teresa, 10) == roxana)
+}
+
+// si el viaje es de 4 kilómetros para Teresa, entonces Roxana cobra 88 pesos y Juana 100. 
+// El precio de Roxana es menor, por lo tanto Roxana es la elegida.
+test "Oficina: Roxana y Juana, Teresa viaja 4kms"
+{
+	oficina.asignarRemiseras(roxana, juana)
+	assert.that(oficina.remiseraElegidaParaViaje(teresa, 4) == roxana)
+}
