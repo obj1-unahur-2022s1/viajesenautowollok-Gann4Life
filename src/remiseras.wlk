@@ -1,9 +1,9 @@
 /* TODO:
- * -[x] Definir remiseras 
- * -[x] Definir clientes
- * -[x] Añadir remisera Lucía
- * -[x] Añadir cadeta Melina
- * -[x] Añadir oficina
+ * 1 [x] Definir remiseras 
+ * 2 [x] Definir clientes
+ * 3 [x] Añadir remisera Lucía
+ * 4 [x] Añadir cadeta Melina
+ * 5 [x] Añadir oficina
  */
 
 object oficina 
