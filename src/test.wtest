@@ -1,0 +1,142 @@
+import remiseras.*
+
+/* [Enunciado 1]
+ * Veamos cuánto cobra cada remisera un viaje de 10 kilómetros. 
+ * En lo que sigue, se supone que Ana María está económicamente estable, y que no se cambió el valor pactado con Teresa.
+ */
+
+/* [Roxana]
+ * a Ludmila 180 pesos (18 * 10)
+ * a Ana María 300
+ * a Teresa 220.
+ */
+test "Roxana: Ludmila hace un viaje de 10km" {
+	assert.that(roxana.precioDeViaje(ludmila, 10) == 180)
+}
+
+test "Roxana: Ana María hace un viaje de 30km" {
+	assert.that(roxana.precioDeViaje(anaMaria, 10) == 300)
+}
+
+test "Roxana: Teresa toma un remís a 10km" {
+	assert.that(roxana.precioDeViaje(teresa, 10) == 220)
+}
+
+/* [Gabriela]
+ * a Ludmila 216 pesos (180 * 1.2)
+ * a Ana María 360
+ * a Teresa 264.
+ */
+test "Gabriela: Ludmila hace un viaje de 10km" {
+	assert.that(gabriela.precioDeViaje(ludmila, 10) == 216)
+}
+
+test "Gabriela: Ana María hace un viaje de 10km" {
+	assert.that(gabriela.precioDeViaje(anaMaria, 10) == 360)
+}
+
+test "Gabriela: Teresa hace un viaje de 10km" {
+	assert.that(gabriela.precioDeViaje(teresa, 10) == 264)
+}
+
+/* [Mariela] 
+ * lo mismo que Roxana.
+ */
+test "Mariela: Ludmila hace un viaje de 10km" {
+	assert.that(mariela.precioDeViaje(ludmila, 10) == 180)
+}
+
+test "Mariela: Ana María hace un viaje de 10km" {
+	assert.that(mariela.precioDeViaje(anaMaria, 10) == 300)
+}
+
+test "Mariela: Teresa hace un viaje de 10km" {
+	assert.that(mariela.precioDeViaje(teresa, 10) == 220)
+}
+
+/* [Juana]
+ * 200 pesos a todos.
+ */
+test "Juana: Ludmila hace un viaje de 10km" {
+	assert.that(juana.precioDeViaje(10) == 200)
+}
+
+test "Juana: Ana María hace un viaje de 10km" {
+	assert.that(juana.precioDeViaje(10) == 200)
+}
+
+test "Juana: Teresa hace un viaje de 10km" {
+	assert.that(juana.precioDeViaje(10) == 200)
+}
+
+/* [Enunciado 2]
+ * Si el viaje es de 2 kilómetros, los valores son estos:
+ * Roxana: a Ludmila 36 pesos (18 * 2), a Ana María 60, a Teresa 44.
+ * Gabriela: a Ludmila 43.20 pesos (36 * 1.2), a Ana María 72, a Teresa 52.80.
+ * Mariela: a Ludmila y a Teresa 50 pesos que es el mínimo, a Ana María 60.
+ * Juana: 100 pesos a todos. 
+ */
+
+// Roxana 
+test "Roxana: Ludmila hace un viaje de 2km"
+{
+	assert.that(roxana.precioDeViaje(ludmila, 2) == 36)
+}
+
+test "Roxana: Ana María hace un viaje de 2km"
+{
+	assert.that(roxana.precioDeViaje(anaMaria, 2) == 60)
+}
+
+test "Roxana: Teresa hace un viaje de 2km"
+{
+	assert.that(roxana.precioDeViaje(teresa, 2) == 44)
+}
+
+// Gabriela
+test "Gabriela: Ludmila hace un viaje de 2km"
+{
+	assert.that(gabriela.precioDeViaje(ludmila, 2) == 43.2)
+}
+
+test "Gabriela: Ana María hace un viaje de 2km"
+{
+	assert.that(gabriela.precioDeViaje(anaMaria, 2) == 72)
+}
+
+test "Gabriela: Teresa hace un viaje de 2km"
+{
+	assert.that(gabriela.precioDeViaje(teresa, 2) == 52.8)
+}
+
+// Mariela
+test "Mariela: Ludmila hace un viaje de 2km"
+{
+	assert.that(mariela.precioDeViaje(ludmila, 2) == 50)
+}
+
+test "Mariela: Ana María hace un viaje de 2km"
+{
+	assert.that(mariela.precioDeViaje(anaMaria, 2) == 60)
+}
+
+test "Mariela: Teresa hace un viaje de 2km"
+{
+	assert.that(mariela.precioDeViaje(teresa, 2) == 50)
+}
+
+// Juana
+test "Juana: Ludmila hace un viaje de 2km"
+{
+	assert.that(juana.precioDeViaje(2) == 100)
+}
+
+test "Juana: Ana María hace un viaje de 2km"
+{
+	assert.that(juana.precioDeViaje(2) == 100)
+}
+
+test "Juana: Teresa hace un viaje de 2km"
+{
+	assert.that(juana.precioDeViaje(2) == 100)
+}
