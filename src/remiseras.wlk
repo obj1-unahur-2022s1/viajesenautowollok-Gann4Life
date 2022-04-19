@@ -3,7 +3,50 @@
  * -[x] Definir clientes
  * -[x] Añadir remisera Lucía
  * -[x] Añadir cadeta Melina
+ * -[ ] Añadir oficina
  */
+
+object oficina 
+{
+	var primeraRemisera
+	var segundaRemisera
+		
+	// establece las remiseras de primera y de segunda opción.
+	method asignarRemiseras(remisera1, remisera2)
+	{
+		
+	} 
+	
+	// cambia la remisera de primera opción por el que se indica.
+	method cambiarPrimerRemiserarPor(remisera)
+	{
+		
+	} 
+	
+	// cambia la remisera de segunda opción por el que se indica.
+	method cambiarSegundoRemiseraPor(remisera)
+	{
+		
+	}
+	
+	
+	// intercambia las remiseras de primera y segunda opción. O sea, la que era primera pasa a segunda, y viceversa.
+	method intercambiarRemiseras()
+	{
+		
+	} 
+	
+	/* Devuelve la remisera que corresponde asignar a un viaje, dados el cliente y la cantidad de kilómetros. 
+	 * El criterio es el siguiente: si para ese viaje, el precio de la segunda remisera es menor al de la primera con una 
+	 	diferencia de más de 30 pesos, entonces se elige la segunda remisera; si no, se elige la primera.
+ 	 * 
+ 	 */
+	method remiseraElegidaParaViaje(cliente, kms)
+	{
+	
+	}
+	
+}
 
 /* #################
  * # ↓ Remiseras ↓ #
