@@ -140,3 +140,40 @@ test "Juana: Teresa hace un viaje de 2km"
 {
 	assert.that(juana.precioDeViaje(2) == 100)
 }
+
+/* [Lucía y la cadete]
+ * si Lucía está reemplazando a Mariela, y Melina está trabajando para Ludmila, entonces:
+ * # por un viaje de 10 kilómetros Lucía le cobra a Melina 150 pesos (el precio por kilómetro es 15, tres menos que lo que se pactó con Ludmila).
+ * # por un viaje de 1 kilómetro le va a cobrar 50 pesos, que es el mínimo que establece Mariela.
+ * 
+ * Si en cambio Lucía está reemplazando a Gabriela, y manteniendo que Melina trabaja para Ludmila, 
+ * entonces los valores para 10 y 1 km son 180 y 18, porque corre el 20% de recargo que establece Gabriela.
+ */
+ 
+ test "[1] Lucía reemplaza a Mariela, Melina trabaja para Ludmila y viaja 10kms" 
+ {
+ 	lucia.reemplazarA(mariela)
+ 	melina.trabajarPara(ludmila)
+ 	assert.that(lucia.precioDeViaje(melina, 10) == 150)
+ }
+ 
+ test "[2] Lucía reemplaza a Mariela, Melina trabaja para Ludmila y viaja 1km" 
+ {
+ 	lucia.reemplazarA(mariela)
+ 	melina.trabajarPara(ludmila)
+ 	assert.that(lucia.precioDeViaje(melina, 1) == 50)
+ }
+ 
+ test "[1] Lucía reemplaza a Gabriela, Melina trabaja para Ludmila y viaja 10kms"
+ {
+ 	lucia.reemplazarA(gabriela)
+ 	melina.trabajarPara(ludmila)
+ 	assert.that(lucia.precioDeViaje(melina, 10) == 180)
+ }
+ 
+ test "[2] Lucía reemplaza a Gabriela, Melina trabaja para Ludmila y viaja 1km"
+ {
+ 	lucia.reemplazarA(gabriela)
+ 	melina.trabajarPara(ludmila)
+ 	assert.that(lucia.precioDeViaje(melina, 1) == 18)
+ }

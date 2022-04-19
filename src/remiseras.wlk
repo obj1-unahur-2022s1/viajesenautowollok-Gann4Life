@@ -1,6 +1,8 @@
 /* TODO:
  * -[x] Definir remiseras 
  * -[x] Definir clientes
+ * -[x] Añadir remisera Lucía
+ * -[ ] Añadir cadeta Melina
  */
 
 /* #################
@@ -43,6 +45,21 @@ object juana {
 	}
 }
 
+/* Lucía es una remisera que hace reemplazos.
+ * O sea, cubre los turnos que las otras remiseras se tienen que tomar por alguna razón. 
+ * Hay que informar a quién está reeemplazando Lucía. 
+ * Lucía cobra lo mismo que la remisera a la que está reemplazando.
+ */
+ object lucia
+ {
+ 	var reemplazoDe
+ 	method reemplazoDe() { return reemplazoDe }
+ 	method reemplazarA(remisera) { reemplazoDe = remisera }
+ 	
+ 	method precioDeViaje(persona, distancia) { return self.reemplazoDe().precioDeViaje(persona, distancia) }
+ }
+
+
 /* ################
  * # ↓ Clientes ↓ #
  * ################
@@ -67,4 +84,18 @@ object teresa
 	var pesoPorKilometro = 22
 	method pesoPorKilometro() { return pesoPorKilometro }
 	method setPesoPorKilometro(nuevoValor) { pesoPorKilometro = nuevoValor }
+}
+
+/* Melina es una cadeta que trabaja para las otras clientas de la remisería. 
+ * En cada momento trabaja para una clienta, se debe informar para quién. 
+ * El precio por kilómetro pactado con Melina es 3 pesos menos que el precio de la clienta para quien esté trabajando en cada momento. 
+ */
+object melina 
+{
+	var trabajandoPara
+
+	method trabajarPara(persona) { trabajandoPara = persona }
+	
+	method trabajandoPara() { return trabajandoPara }
+	method pesoPorKilometro(){ return self.trabajandoPara().pesoPorKilometro() - 3 }
 }
