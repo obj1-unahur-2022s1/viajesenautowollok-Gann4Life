@@ -2,7 +2,7 @@
  * -[x] Definir remiseras 
  * -[x] Definir clientes
  * -[x] Añadir remisera Lucía
- * -[ ] Añadir cadeta Melina
+ * -[x] Añadir cadeta Melina
  */
 
 /* #################
